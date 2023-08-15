@@ -27,7 +27,6 @@ Route::middleware(['guest'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-
     Route::get('/logout', [LoginController::class, 'logout']);
     Route::get('/stores', [StoreController::class, 'index']);
 
@@ -37,5 +36,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/editStore/{id}', [StoreController::class, 'editStore'])->name('editStore');
     Route::post('/addStore', [StoreController::class, 'addStore']);
 
+    Route::get('/deleteStore/{id}', [StoreController::class, 'deleteStore']);
 });
 

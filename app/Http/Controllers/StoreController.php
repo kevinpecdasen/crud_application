@@ -10,7 +10,7 @@ use App\Models\Store;
 class StoreController extends Controller
 {
     public function index() {
-        $stores = Store::paginate(10);
+        $stores = Store::orderBy('name', 'asc')->paginate(10);
 
         $data = [
             'title'         => "Store List",
@@ -72,5 +72,14 @@ class StoreController extends Controller
         $store->save();
 
         return redirect("/showEditStore/$id")->with('success', 'Store has been successfully updated.');
+    }
+
+    function deleteStore($id) {
+
+        $store = Store::findOrFail($id);
+        $store->delete();
+
+        return redirect()->back()->with('success', 'Store deleted successfully.');
+
     }
 }

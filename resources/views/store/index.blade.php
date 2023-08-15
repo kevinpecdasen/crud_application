@@ -13,6 +13,12 @@
                     </div>
                 @endif
 
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
                 <div class="d-flex flex-wrap justify-content-lg-end">
                     <div class="float-end">
                         <button class="btn btn-sm btn-secondary mb-1">
@@ -34,8 +40,12 @@
                             <tr>
                                 <td>{{ $store->name }}</td>
                                 <td>{{ $store->description }}</td>
-                                <td><a href="/showEditStore/{{ $store->id }}">
+                                <td>
+                                    <a href="/showEditStore/{{ $store->id }}">
                                     <span class="btn btn-sm btn-outline-secondary">Edit</span></a>
+                                    <a href="/deleteStore/{{ $store->id }}"
+                                        onclick="return confirm('Are you sure you want to delete this store?')">
+                                        <span class="btn btn-sm btn-outline-danger" >Delete</span></a>
                                 </td>
                             </tr>
                         @endforeach
