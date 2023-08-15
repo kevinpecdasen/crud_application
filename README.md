@@ -1,3 +1,6 @@
+Registration/Login/Logout functionalities.
+Viewing of paginated stores, adding, editing and deletion of stores are also added.
+
 Instructions.
 <ul>
     <li>Edit the .env file and setup the database essentials such as the db name, username, password.</li>
